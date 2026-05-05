@@ -1,243 +1,1078 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shanthi Loops — Slow Living in Wayanad</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanthi Loops - Slow Living Travel in Thirunelly, Wayanad</title>
+    <style>
+        /* RESET & DEFAULTS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="./assets/css/style.css">
+        html {
+            scroll-behavior: smooth;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #061435;
+            background-color: #FEFADF;
+            overflow-x: hidden;
+        }
+
+        /* COLOR VARIABLES */
+        :root {
+            --deep-teal: #0B4050;
+            --cream: #FEFADF;
+            --sage: #3F5F4A;
+            --terracotta: #4E180C;
+            --navy: #061435;
+            --light-gray: #F5F3ED;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--deep-teal);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-style: italic;
+            color: var(--deep-teal);
+            font-family: 'Georgia', serif;
+            margin: 1.5rem 0;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+        }
+
+        nav.scrolled {
+            background-color: rgba(11, 64, 80, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav.scrolled .logo {
+            color: var(--cream);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--deep-teal);
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav.scrolled .nav-menu a {
+            color: var(--cream);
+        }
+
+        .nav-menu a:hover {
+            color: var(--terracotta);
+        }
+
+        .cta-btn {
+            background-color: var(--terracotta);
+            color: var(--cream);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--terracotta);
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--terracotta);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--deep-teal);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .menu-toggle span {
+            background-color: var(--cream);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0B4050 0%, #3F5F4A 100%);
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--cream);
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=1200&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-location {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero h1 {
+            color: var(--cream);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .subtitle {
+            color: var(--cream);
+            opacity: 0.95;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--terracotta);
+            color: var(--terracotta);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--cream);
+            color: var(--deep-teal);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MANIFESTO SECTION */
+        .manifesto {
+            background-color: var(--deep-teal);
+            color: var(--cream);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .manifesto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .manifesto-item {
+            padding: 2rem;
+        }
+
+        .manifesto-item h3 {
+            color: var(--terracotta);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .manifesto-item p {
+            color: var(--cream);
+            font-style: italic;
+            font-size: 1.05rem;
+            font-family: 'Georgia', serif;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* SECTION STYLING */
+        section {
+            padding: 5rem 0;
+            border-top: 1px solid rgba(11, 64, 80, 0.1);
+        }
+
+        section:first-of-type {
+            border-top: none;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            color: var(--sage);
+        }
+
+        /* LOOPS SECTION */
+        .loops {
+            background-color: var(--light-gray);
+        }
+
+        .loops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .loop-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(11, 64, 80, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loop-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(11, 64, 80, 0.15);
+        }
+
+        .loop-card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--sage), var(--deep-teal));
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .loop-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .loop-card:hover .loop-card-image img {
+            transform: scale(1.05);
+        }
+
+        .loop-card-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .loop-card h3 {
+            color: var(--deep-teal);
+            margin-bottom: 0.75rem;
+        }
+
+        .loop-meta {
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .loop-card p {
+            color: var(--sage);
+            font-size: 0.95rem;
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .loop-card a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .loop-card a:hover {
+            color: var(--deep-teal);
+        }
+
+        /* PACKAGES SECTION */
+        .packages {
+            background-color: white;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .package-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .package-card.featured {
+            background: linear-gradient(135deg, var(--deep-teal), var(--sage));
+            color: var(--cream);
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(11, 64, 80, 0.2);
+        }
+
+        .package-card:hover {
+            border-color: var(--terracotta);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 50px rgba(11, 64, 80, 0.3);
+        }
+
+        .package-badge {
+            display: inline-block;
+            background-color: var(--terracotta);
+            color: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .package-card.featured .package-badge {
+            background-color: var(--terracotta);
+        }
+
+        .package-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .package-card.featured h3 {
+            color: var(--cream);
+        }
+
+        .package-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--terracotta);
+        }
+
+        .package-card.featured .package-price {
+            color: #FFE082;
+        }
+
+        .package-duration {
+            font-size: 0.9rem;
+            color: var(--sage);
+            margin-bottom: 1.5rem;
+        }
+
+        .package-card.featured .package-duration {
+            color: rgba(254, 250, 223, 0.9);
+        }
+
+        .package-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: var(--sage);
+        }
+
+        .package-card.featured .package-description {
+            color: rgba(254, 250, 223, 0.95);
+        }
+
+        .btn-package {
+            background-color: var(--terracotta);
+            color: var(--cream);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-package:hover {
+            background-color: var(--sage);
+        }
+
+        .package-card.featured .btn-package {
+            background-color: var(--cream);
+            color: var(--deep-teal);
+        }
+
+        .package-card.featured .btn-package:hover {
+            background-color: var(--terracotta);
+            color: var(--cream);
+        }
+
+        /* HOW IT WORKS SECTION */
+        .how-it-works {
+            background-color: var(--light-gray);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .step h4 {
+            color: var(--deep-teal);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .step p {
+            color: var(--sage);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* CTA SECTION */
+        .cta-final {
+            background: linear-gradient(135deg, var(--deep-teal), var(--sage));
+            color: var(--cream);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-final h2 {
+            color: var(--cream);
+        }
+
+        .cta-final .section-intro {
+            color: rgba(254, 250, 223, 0.95);
+        }
+
+        .cta-whatsapp {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid transparent;
+        }
+
+        .cta-whatsapp:hover {
+            background-color: #20BA5A;
+            transform: scale(1.05);
+        }
+
+        /* FLOATING WHATSAPP BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20BA5A;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--navy);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: var(--cream);
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            background-color: var(--cream);
+            color: var(--deep-teal);
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.85rem;
+            }
+
+            .cta-btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                margin-top: 60px;
+                height: 80vh;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .manifesto-container {
+                gap: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .loops-grid,
+            .packages-grid,
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .package-card.featured {
+                transform: scale(1);
+            }
+
+            .package-card.featured:hover {
+                transform: scale(1);
+            }
+
+            .whatsapp-float {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--deep-teal);
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+                margin-top: 0;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 0.75rem 1.5rem;
+                display: block;
+                color: var(--cream);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .manifesto-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-final {
+                padding: 3rem 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Shanthi Loops</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#loops">Loops</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#how">How it Works</a></li>
+                <li><a href="#contact" class="cta-btn">Plan My Visit</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-<body id="top">
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-location">Thirunelly · Wayanad · Kerala</div>
+            <h1>You come for the places.<br>You stay for the people.</h1>
+            <p class="subtitle">Shanthi Loops maps forest trails, river ghats, and village life into walkable circuits. The discovery inside is yours.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Plan My Visit</a>
+                <a href="#loops" class="btn-secondary">See the Loops</a>
+            </div>
+        </div>
+    </section>
 
-<header class="header" data-header>
+    <!-- MANIFESTO SECTION -->
+    <section class="manifesto">
+        <div class="manifesto-container">
+            <div class="manifesto-item">
+                <h3>Shanthi</h3>
+                <p>Peace. The quality of a morning before anyone arrives.</p>
+            </div>
+            <div class="manifesto-item">
+                <p class="tagline">A loop is not a tour. It returns you changed.</p>
+            </div>
+            <div class="manifesto-item">
+                <h3>Return</h3>
+                <p>Come back to yourself, transformed by the journey within.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="overlay" data-overlay></div>
+    <!-- LOOPS SECTION -->
+    <section class="loops" id="loops">
+        <div class="container">
+            <h2>Three Circuits. One Map. Yours to Walk.</h2>
+            <p class="section-intro">Each loop is designed to return you to your origin, changed. Choose based on your pace and curiosity.</p>
+            
+            <div class="loops-grid">
+                <!-- Temple Loop -->
+                <div class="loop-card">
+                    <div class="loop-card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=400&fit=crop" alt="Temple Loop">
+                    </div>
+                    <div class="loop-card-content">
+                        <h3>Temple Loop</h3>
+                        <div class="loop-meta">3–5 km · Half Day</div>
+                        <p>A gentle walk through sacred spaces. Temple → river ghats → village squares. Meet locals, taste the morning stillness.</p>
+                        <a href="#contact">Learn More →</a>
+                    </div>
+                </div>
 
-<div class="header-top">
-<div class="container">
+                <!-- Forest Edge Loop -->
+                <div class="loop-card">
+                    <div class="loop-card-image">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&h=400&fit=crop" alt="Forest Edge Loop">
+                    </div>
+                    <div class="loop-card-content">
+                        <h3>Forest Edge Loop</h3>
+                        <div class="loop-meta">8–12 km · Full Day</div>
+                        <p>Immersive wilderness. Wildlife sightings, Brahmagiri views, guided trails. For those seeking depth and solitude.</p>
+                        <a href="#contact">Learn More →</a>
+                    </div>
+                </div>
 
-<a href="https://wa.me/919562614314" class="helpline-box" target="_blank">
-<div class="icon-box">
-<ion-icon name="logo-whatsapp"></ion-icon>
-</div>
-<div class="wrapper">
-<p class="helpline-title">Plan on WhatsApp</p>
-<p class="helpline-number">+91 95626 14314</p>
-</div>
-</a>
+                <!-- Culture Loop -->
+                <div class="loop-card">
+                    <div class="loop-card-image">
+                        <img src="https://images.unsplash.com/photo-1489392191049-fc8c6814147e?w=500&h=400&fit=crop" alt="Culture Loop">
+                    </div>
+                    <div class="loop-card-content">
+                        <h3>Culture Loop</h3>
+                        <div class="loop-meta">4–6 km · Half Day</div>
+                        <p>Live the village rhythm. Farms, artisans at work, local kitchens. Understand how people live and create here.</p>
+                        <a href="#contact">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a href="#home" class="logo">
-<img src="./assets/images/logo.svg" alt="Shanthi Loops">
-</a>
+    <!-- PACKAGES SECTION -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2>Packages & Pricing</h2>
+            <p class="section-intro">Tell us your budget and your days. We design the loop to fit.</p>
+            
+            <div class="packages-grid">
+                <!-- Backpacker Loop -->
+                <div class="package-card">
+                    <div class="package-badge">Budget Friendly</div>
+                    <h3>Backpacker Loop</h3>
+                    <div class="package-price">₹3,000</div>
+                    <p class="package-duration">2 nights · all-inclusive</p>
+                    <p class="package-description">Shared stays, community experiences, Temple Loop + Culture Loop.</p>
+                    <a href="https://wa.me/919876543210" class="btn-package">Plan Visit</a>
+                </div>
 
-<button class="nav-open-btn" data-nav-open-btn>
-<ion-icon name="menu-outline"></ion-icon>
-</button>
+                <!-- Together Loop (Featured) -->
+                <div class="package-card featured">
+                    <div class="package-badge">Most Popular</div>
+                    <h3>Together Loop</h3>
+                    <div class="package-price">₹4,000</div>
+                    <p class="package-duration">per night · couples/friends</p>
+                    <p class="package-description">Private stays, personalized guidance, two loops + rest & reflection days.</p>
+                    <a href="https://wa.me/919876543210" class="btn-package">Plan Visit</a>
+                </div>
 
-</div>
-</div>
+                <!-- Creator Loop -->
+                <div class="package-card">
+                    <div class="package-badge">Premium</div>
+                    <h3>Creator Loop</h3>
+                    <div class="package-price">₹9,999</div>
+                    <p class="package-duration">per week · unlimited</p>
+                    <p class="package-description">All loops, private guide, workspace, photography sessions, digital detox package.</p>
+                    <a href="https://wa.me/919876543210" class="btn-package">Plan Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="header-bottom">
-<div class="container">
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p class="section-intro">Four simple steps to your next loop.</p>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Tell Us</h4>
+                    <p>Share your dates, budget, and travel style.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>We Design</h4>
+                    <p>We craft your custom loop and arrange everything.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>You Arrive</h4>
+                    <p>Settle in. Leave the logistics to us.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>We Guide</h4>
+                    <p>Local guides lead you. You walk your pace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<nav class="navbar" data-navbar>
-<ul class="navbar-list">
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-final" id="contact">
+        <div class="container">
+            <h2>Plan Your Loop</h2>
+            <p class="section-intro">Tell us your dates, budget, and travel style. We design it for you.</p>
+            <a href="https://wa.me/919876543210" class="cta-whatsapp">💬 WhatsApp Now</a>
+        </div>
+    </section>
 
-<li><a href="#home" class="navbar-link">home</a></li>
-<li><a href="#loops" class="navbar-link">loops</a></li>
-<li><a href="#packages" class="navbar-link">packages</a></li>
-<li><a href="#how" class="navbar-link">how it works</a></li>
-<li><a href="#contact" class="navbar-link">plan</a></li>
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/919876543210" class="whatsapp-float" title="Chat with us on WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.025 0-2.031.313-2.896.893l-.385.214-.799-.164c-.735-.151-1.44-.36-2.114-.627L6.352.51C7.285.036 8.361-.154 9.563-.154c4.508 0 8.154 3.645 8.154 8.154 0 1.201-.189 2.277-.664 3.21l-.167-.79-.214-.386c-.58-.865-.893-1.871-.893-2.896"/>
+        </svg>
+    </a>
 
-</ul>
-</nav>
+    <!-- FOOTER -->
+    <footer>
+        <h3>Shanthi Loops</h3>
+        <p>Thirunelly, Wayanad, Kerala 673592</p>
+        <p><a href="https://wa.me/919876543210" style="color: inherit; text-decoration: none;">📞 WhatsApp: +91 98765 43210</a></p>
+        <div class="footer-social">
+            <a href="https://instagram.com/shanthiloops" class="social-icon" title="Instagram">📷</a>
+            <a href="https://facebook.com/shanthiloops" class="social-icon" title="Facebook">f</a>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.8;">© 2026 Shanthi Loops. A slow-living experience.</p>
+    </footer>
 
-<a href="https://wa.me/919562614314" class="btn btn-primary">Plan Visit</a>
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
 
-</div>
-</div>
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
 
-</header>
+        // Close menu when link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
 
-<main>
-<article>
+        // Navbar scroll behavior
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-<div class="container">
-
-<h2 class="h1 hero-title">
-You come for the places.<br>You stay for the people.
-</h2>
-
-<p class="hero-text">
-Forest trails, river ghats, village kitchens — all connected into one looped experience in Thirunelly.
-</p>
-
-<div class="btn-group">
-<a href="#packages" class="btn btn-primary">Plan my visit</a>
-<a href="https://wa.me/919562614314" class="btn btn-secondary">WhatsApp</a>
-</div>
-
-</div>
-</section>
-
-<!-- BRAND STRIP -->
-
-<section class="cta" style="background:#061435;">
-<div class="container">
-<h2 class="h2 section-title">A loop is not a tour.</h2>
-<p class="section-text">It returns you to your origin, changed.</p>
-</div>
-</section>
-
-<!-- LOOPS -->
-
-<section class="popular" id="loops">
-<div class="container">
-
-<p class="section-subtitle">The Experience</p>
-<h2 class="h2 section-title">Three circuits. One map.</h2>
-
-<ul class="popular-list">
-
-<li>
-<div class="popular-card">
-<figure class="card-img">
-<img src="./assets/images/popular-1.jpg" alt="">
-</figure>
-<div class="card-content">
-<h3 class="h3 card-title">Temple Loop</h3>
-<p class="card-text">Half day · Walk · Temple to river to village</p>
-</div>
-</div>
-</li>
-
-<li>
-<div class="popular-card">
-<figure class="card-img">
-<img src="./assets/images/popular-2.jpg" alt="">
-</figure>
-<div class="card-content">
-<h3 class="h3 card-title">Forest Edge Loop</h3>
-<p class="card-text">Full day · Wildlife · Guided Brahmagiri edge</p>
-</div>
-</div>
-</li>
-
-<li>
-<div class="popular-card">
-<figure class="card-img">
-<img src="./assets/images/popular-3.jpg" alt="">
-</figure>
-<div class="card-content">
-<h3 class="h3 card-title">Culture Loop</h3>
-<p class="card-text">Village · Farms · Local life</p>
-</div>
-</div>
-</li>
-
-</ul>
-
-</div>
-</section>
-
-<!-- PACKAGES -->
-
-<section class="package" id="packages">
-<div class="container">
-
-<p class="section-subtitle">Stay Options</p>
-<h2 class="h2 section-title">Choose your loop</h2>
-
-<ul class="package-list">
-
-<li>
-<div class="package-card">
-<div class="card-content">
-<h3 class="h3 card-title">Backpacker</h3>
-<p class="card-text">Simple stay · Food included · Loop access</p>
-<p class="price">₹3000 <span>/ 2 nights</span></p>
-</div>
-</div>
-</li>
-
-<li>
-<div class="package-card">
-<div class="card-content">
-<h3 class="h3 card-title">Together Loop</h3>
-<p class="card-text">Private stay · Curated experience · Local hosting</p>
-<p class="price">₹4000 <span>/ night</span></p>
-</div>
-</div>
-</li>
-
-<li>
-<div class="package-card">
-<div class="card-content">
-<h3 class="h3 card-title">Creator</h3>
-<p class="card-text">Long stay · Silence · Space to build</p>
-<p class="price">₹9999 <span>/ week</span></p>
-</div>
-</div>
-</li>
-
-</ul>
-
-</div>
-</section>
-
-<!-- HOW IT WORKS -->
-
-<section class="popular" id="how">
-<div class="container">
-
-<h2 class="h2 section-title">How it works</h2>
-
-<ul class="popular-list">
-
-<li><div class="popular-card"><div class="card-content"><p>Tell us your dates & budget</p></div></div></li>
-<li><div class="popular-card"><div class="card-content"><p>We design your loop</p></div></div></li>
-<li><div class="popular-card"><div class="card-content"><p>You arrive. We guide.</p></div></div></li>
-
-</ul>
-
-</div>
-</section>
-
-<!-- CTA -->
-
-<section class="cta" id="contact">
-<div class="container">
-
-<h2 class="h2 section-title">Plan your visit</h2>
-<p class="section-text">
-Tell us your travel style. We’ll design your loop within 12 hours.
-</p>
-
-<a href="https://wa.me/919562614314" class="btn btn-secondary">
-WhatsApp Now
-</a>
-
-</div>
-</section>
-
-</article>
-</main>
-
-<a href="https://wa.me/919562614314" class="whatsapp">💬</a>
-
-<script src="./assets/js/script.js"></script>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
