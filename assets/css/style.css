@@ -1,13 +1,13 @@
 /* ============================= */
-/* SHANTHI LOOPS BRAND OVERRIDE */
+/* SHANTHI LOOPS FINAL OVERRIDE */
 /* ============================= */
 
 :root {
-  --bright-navy-blue: #0B4050;   /* Primary */
-  --united-nations-blue: #3F5F4A; /* Secondary */
-  --blue-ncs: #4E180C;           /* Accent */
-  --gunmetal: #061435;           /* Dark */
-  --white: #FEFADF;              /* Background */
+  --bright-navy-blue: #0B4050;
+  --united-nations-blue: #3F5F4A;
+  --blue-ncs: #4E180C;
+  --gunmetal: #061435;
+  --white: #FEFADF;
 }
 
 /* BODY */
@@ -16,21 +16,28 @@ body {
   color: #0B4050;
 }
 
-/* HERO */
+/* HERO (BIG IMPROVEMENT) */
 .hero {
-  background-color: rgba(6,20,53,0.75);
+  background-color: rgba(6,20,53,0.78);
   background-blend-mode: overlay;
 }
 
 .hero-title {
   font-family: 'Montserrat', serif;
   letter-spacing: 1px;
+  font-size: calc(28px + 3vw);
 }
 
-/* BUTTONS */
+.hero-text {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* BUTTONS (MORE PREMIUM) */
 .btn-primary {
   background: #0B4050;
   border-color: #0B4050;
+  box-shadow: 0 6px 20px rgba(11,64,80,0.3);
 }
 
 .btn-primary:hover {
@@ -43,35 +50,59 @@ body {
   color: #FEFADF;
 }
 
-/* SECTION TITLES */
+/* SECTION HEADINGS */
 .section-title {
   color: #0B4050;
+  font-weight: 700;
 }
 
 .section-subtitle {
   color: #3F5F4A;
 }
 
-/* POPULAR (LOOPS) */
+/* LOOPS CARDS */
+.popular-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
 .popular-card .card-content {
   background: #FEFADF;
+  padding: 25px;
 }
 
 .popular-card .card-title {
   color: #0B4050;
 }
 
-/* PACKAGE CARDS */
+/* PACKAGE CARDS (IMPORTANT FIX) */
 .package-card {
   background: #FEFADF;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 
-.package-card .card-price {
-  background: #0B4050;
+.package-card .card-content {
+  padding: 30px;
 }
 
-/* CTA */
+.package-card .price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0B4050;
+  margin-top: 10px;
+}
+
+/* BRAND STRIP */
 .cta {
+  background: #061435;
+  color: #FEFADF;
+}
+
+/* NAVBAR ACTIVE */
+.header.active {
   background: #061435;
 }
 
@@ -85,25 +116,36 @@ a:hover {
   color: #4E180C;
 }
 
-/* NAVBAR ACTIVE */
-.header.active {
-  background: #061435;
-}
-
 /* SCROLL BUTTON */
 .go-top {
   background: #0B4050;
 }
 
-/* WHATSAPP BUTTON IMPROVEMENT */
+/* WHATSAPP BUTTON */
 .whatsapp {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
 }
 
-/* CARD HOVER EFFECT */
-.card:hover,
-.package-card:hover,
-.popular-card:hover {
-  transform: translateY(-5px);
-  transition: 0.3s ease;
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* CARD HOVER (BIG VISUAL IMPACT) */
+.popular-card:hover,
+.package-card:hover {
+  transform: translateY(-8px);
+  transition: 0.35s ease;
+}
+
+/* SPACING IMPROVEMENT */
+section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* TEXT BALANCE */
+.section-text {
+  max-width: 600px;
+  margin: auto;
 }
